@@ -1,0 +1,601 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muthueswarapandian | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#00f7ff;
+    filter:blur(180px);
+    opacity:0.15;
+    top:-200px;
+    left:-200px;
+    z-index:-1;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#7c3aed;
+    filter:blur(180px);
+    opacity:0.15;
+    bottom:-200px;
+    right:-200px;
+    z-index:-1;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(10px);
+    background:rgba(0,0,0,0.2);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+}
+
+.logo{
+    font-size:2rem;
+    font-weight:700;
+}
+
+.logo span{
+    color:#00f7ff;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00f7ff;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 10%;
+    position:relative;
+}
+
+.hero-content h3{
+    font-size:1.5rem;
+    color:#00f7ff;
+}
+
+.hero-content h1{
+    font-size:4rem;
+    margin:10px 0;
+}
+
+.hero-content h2{
+    font-size:2rem;
+    color:#7c3aed;
+}
+
+.hero-content p{
+    margin:20px auto;
+    max-width:700px;
+    line-height:1.8;
+    opacity:0.8;
+}
+
+.hero-buttons{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 30px;
+    background:#00f7ff;
+    color:black;
+    border-radius:40px;
+    text-decoration:none;
+    margin:10px;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 25px #00f7ff;
+}
+
+.btn-outline{
+    background:transparent;
+    border:2px solid #00f7ff;
+    color:white;
+}
+
+.socials{
+    margin-top:30px;
+}
+
+.socials a{
+    color:white;
+    font-size:1.5rem;
+    margin:0 15px;
+    transition:0.3s;
+}
+
+.socials a:hover{
+    color:#00f7ff;
+}
+
+section{
+    padding:100px 10%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+}
+
+.glass{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+}
+
+.about-container{
+    padding:40px;
+    line-height:2;
+    font-size:1.1rem;
+}
+
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.skill-card{
+    padding:40px;
+    text-align:center;
+    transition:0.4s;
+}
+
+.skill-card i{
+    font-size:3rem;
+    margin-bottom:20px;
+    color:#00f7ff;
+}
+
+.skill-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px #00f7ff;
+}
+
+.projects-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    padding:35px;
+    transition:0.4s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 25px #7c3aed;
+}
+
+.project-card h3{
+    margin-bottom:20px;
+}
+
+.project-card p{
+    opacity:0.8;
+    line-height:1.8;
+}
+
+.tech-stack{
+    margin-top:25px;
+}
+
+.tech-stack span{
+    display:inline-block;
+    background:#00f7ff;
+    color:black;
+    padding:8px 15px;
+    border-radius:30px;
+    margin:5px;
+    font-size:0.9rem;
+    font-weight:600;
+}
+
+.timeline-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    justify-content:center;
+}
+
+.timeline-box{
+    width:350px;
+    padding:35px;
+    transition:0.4s;
+}
+
+.timeline-box:hover{
+    transform:scale(1.05);
+}
+
+.contact-container{
+    max-width:700px;
+    margin:auto;
+    padding:40px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+input,
+textarea{
+    margin:15px 0;
+    padding:18px;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    font-size:1rem;
+}
+
+input:focus,
+textarea:focus{
+    outline:none;
+    border:1px solid #00f7ff;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    opacity:0.7;
+}
+
+.cursor{
+    width:20px;
+    height:20px;
+    border:2px solid #00f7ff;
+    border-radius:50%;
+    position:fixed;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    transition:0.1s;
+    z-index:9999;
+}
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero-content h1{
+        font-size:2.7rem;
+    }
+
+    .hero-content h2{
+        font-size:1.5rem;
+    }
+
+}
+
+    </style>
+</head>
+<body>
+
+<div class="cursor"></div>
+
+<header>
+    <nav>
+        <h1 class="logo">Muthu<span>.</span></h1>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <h3>Hello, I'm</h3>
+        <h1>Muthueswarapandian</h1>
+
+        <h2>
+            <span class="typing"></span>
+        </h2>
+
+        <p>
+            Passionate AI & Data Science student focused on building interactive dashboards,
+            analyzing data, and creating modern web experiences.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="https://github.com/muthupsrr-cpu" target="_blank" class="btn btn-outline">GitHub</a>
+        </div>
+
+        <div class="socials">
+            <a href="https://github.com/muthupsrr-cpu" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/muthueswarapandian-k-0579132a3" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:muthueswarapandian07@gmaio.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+
+</section>
+
+<section class="about" id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="about-container glass">
+        <p>
+            I am a B.Tech Artificial Intelligence & Data Science student passionate about
+            Data Analytics, Dashboard Development, and Web Technologies.
+            I enjoy transforming raw data into meaningful insights using Power BI,
+            Excel, SQL, and Python.
+        </p>
+
+        <br>
+
+        <p>
+            I have completed internships in Data Science and Data Analytics,
+            where I worked on real-world dashboards, EDA projects, and visualization systems.
+        </p>
+    </div>
+
+</section>
+
+<section class="skills" id="skills">
+
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-container">
+
+        <div class="skill-card glass">
+            <i class="fab fa-python"></i>
+            <h3>Python</h3>
+        </div>
+
+        <div class="skill-card glass">
+            <i class="fab fa-java"></i>
+            <h3>Java</h3>
+        </div>
+
+        <div class="skill-card glass">
+            <i class="fas fa-database"></i>
+            <h3>SQL</h3>
+        </div>
+
+        <div class="skill-card glass">
+            <i class="fas fa-chart-line"></i>
+            <h3>Power BI</h3>
+        </div>
+
+        <div class="skill-card glass">
+            <i class="fas fa-file-excel"></i>
+            <h3>Excel</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="projects" id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-container">
+
+        <div class="project-card glass">
+            <h3>IT Help Desk Ticket Dashboard</h3>
+
+            <p>
+                Built an interactive Power BI dashboard featuring ticket distribution,
+                SLA monitoring, priority analysis, and resolution tracking.
+            </p>
+
+            <div class="tech-stack">
+                <span>Power BI</span>
+                <span>Analytics</span>
+                <span>Dashboard</span>
+            </div>
+        </div>
+
+        <div class="project-card glass">
+            <h3>iPhone Sales Analytics Dashboard</h3>
+
+            <p>
+                Developed a sales analytics dashboard with filters,
+                model comparison, regional analysis, and revenue tracking.
+            </p>
+
+            <div class="tech-stack">
+                <span>Power BI</span>
+                <span>Data Analysis</span>
+                <span>Visualization</span>
+            </div>
+        </div>
+
+        <div class="project-card glass">
+            <h3>Student Placement Dashboard</h3>
+
+            <p>
+                Created an Excel dashboard to analyze placement trends,
+                salary insights, and department performance.
+            </p>
+
+            <div class="tech-stack">
+                <span>Excel</span>
+                <span>Charts</span>
+                <span>Pivot Tables</span>
+            </div>
+        </div>
+
+        <div class="project-card glass">
+            <h3>EDA Internship Project</h3>
+
+            <p>
+                Performed exploratory data analysis and preprocessing
+                to identify patterns and support business decisions.
+            </p>
+
+            <div class="tech-stack">
+                <span>Python</span>
+                <span>EDA</span>
+                <span>Visualization</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="timeline">
+
+    <h2 class="section-title">Internships</h2>
+
+    <div class="timeline-container">
+        <div class="timeline-box glass">
+            <h3>Persevex</h3>
+            <h4>Data Science Internship</h4>
+            <p>July 2025 - September 2025</p>
+        </div>
+
+        <div class="timeline-box glass">
+            <h3>Phoenix Softech</h3>
+            <h4>Data Analytics Internship</h4>
+            <p>July 2025</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+    <h2 class="section-title">Contact Me</h2>
+
+    <div class="contact-container glass">
+
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea rows="6" placeholder="Your Message"></textarea>
+
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Muthueswarapandian | Portfolio</p>
+</footer>
+
+<script>
+
+const typed = new Typed('.typing', {
+    strings: [
+        'AI & Data Science Student',
+        'Power BI Developer',
+        'Data Analyst'
+    ],
+    typeSpeed: 70,
+    backSpeed: 50,
+    loop: true
+});
+
+ScrollReveal({
+    distance:'80px',
+    duration:2000,
+    delay:200
+});
+
+ScrollReveal().reveal('.hero-content',{origin:'top'});
+ScrollReveal().reveal('.about-container',{origin:'left'});
+ScrollReveal().reveal('.skill-card',{origin:'bottom', interval:200});
+ScrollReveal().reveal('.project-card',{origin:'bottom', interval:200});
+ScrollReveal().reveal('.timeline-box',{origin:'right', interval:200});
+ScrollReveal().reveal('.contact-container',{origin:'bottom'});
+
+const cursor = document.querySelector('.cursor');
+
+window.addEventListener('mousemove', (e)=>{
+    cursor.style.left = e.pageX + 'px';
+    cursor.style.top = e.pageY + 'px';
+});
+
+</script>
+
+</body>
+</html>
